@@ -3,7 +3,7 @@ import { type SearchMovieHandler } from "../App/App";
 import { toast } from "react-hot-toast/headless";
 
 interface SearchBarProps {
-  onSubmit?: SearchMovieHandler;
+  onSubmit: SearchMovieHandler;
 }
 
 export default function SearchBar({ onSubmit }: SearchBarProps) {
