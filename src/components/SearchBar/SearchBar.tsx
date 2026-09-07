@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.css";
-import {type SearchMovieHandler} from '../../types/movie'
+import {type SearchMovieHandler} from '../App/App'
 import { toast } from "react-hot-toast/headless";
 
 interface SearchBarProps {
@@ -15,7 +15,7 @@ export default function SearchBar({
       toast.error("Please enter your search query.");
       return;
     } else {
-      onSubmit(data);
+      onSubmit(query);
     }
   }
 

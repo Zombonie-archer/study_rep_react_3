@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./App.module.css";
-import { type Movie, type SearchMovieHandler } from "../../types/movie";
+import { type Movie } from "../../types/movie";
 import SearchBar from "../SearchBar/SearchBar";
 import toast, { Toaster } from "react-hot-toast";
 import { searchMovies } from "../../services/movieService";
@@ -9,6 +9,10 @@ import Loader from "../Loader/Loader";
 import MovieGrid from "../MovieGrid/MovieGrid";
 import MovieModal from "../MovieModal/MovieModal";
 import { createPortal } from "react-dom";
+
+export interface SearchMovieHandler {
+  (query: string): void;
+}
 
 function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -24,9 +28,7 @@ function App() {
     setSelectedMovie(null);
   }
 
-  const handleSearch: SearchMovieHandler = async (data) => {
-    const query: string | null = data.get("query") as string | null;
-
+  const handleSearch: SearchMovieHandler = async (query) => {
     try {
       setIsLoading(true);
       const response: Movie[] = await searchMovies(query);
