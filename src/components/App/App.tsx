@@ -22,11 +22,11 @@ function App() {
 
   const onSelect: (movie: Movie) => void = (movie) => {
     setSelectedMovie(movie);
-  }
+  };
 
   const onClose: () => void = () => {
     setSelectedMovie(null);
-  }
+  };
 
   const handleSearch: SearchMovieHandler = async (query) => {
     try {
@@ -50,10 +50,14 @@ function App() {
       <SearchBar onSubmit={handleSearch} />
       {isError && !isLoading && <ErrorMessage />}
       {isLoading && !isError && <Loader />}
-      {!isLoading && !isError && <MovieGrid movies={movies} onSelect={onSelect} />}
-      {selectedMovie && createPortal(
-        <MovieModal movie={selectedMovie} onClose={onClose} />
-      , document.body)}
+      {!isLoading && !isError && (
+        <MovieGrid movies={movies} onSelect={onSelect} />
+      )}
+      {selectedMovie &&
+        createPortal(
+          <MovieModal movie={selectedMovie} onClose={onClose} />,
+          document.body,
+        )}
     </div>
   );
 }

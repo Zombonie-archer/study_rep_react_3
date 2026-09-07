@@ -16,7 +16,7 @@ export const searchMovies = async (query: string): Promise<Movie[]> => {
       headers: {
         Authorization: `Bearer ${apiKey}`,
       },
-    }
+    },
   );
   return response.data.results;
 };

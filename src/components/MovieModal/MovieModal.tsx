@@ -29,9 +29,18 @@ export default function MovieModal({ movie, onClose }: MovieModalProps) {
   }
 
   return (
-    <div className={styles.backdrop} role="dialog" aria-modal="true" onClick={handleBackdropClick}>
+    <div
+      className={styles.backdrop}
+      role="dialog"
+      aria-modal="true"
+      onClick={handleBackdropClick}
+    >
       <div className={styles.modal}>
-        <button className={styles.closeButton} aria-label="Close modal" onClick={onClose}>
+        <button
+          className={styles.closeButton}
+          aria-label="Close modal"
+          onClick={onClose}
+        >
           &times;
         </button>
         <img
