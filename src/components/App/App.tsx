@@ -53,11 +53,7 @@ function App() {
       {!isLoading && !isError && (
         <MovieGrid movies={movies} onSelect={onSelect} />
       )}
-      {selectedMovie &&
-        createPortal(
-          <MovieModal movie={selectedMovie} onClose={onClose} />,
-          document.body,
-        )}
+      {selectedMovie && <MovieModal movie={selectedMovie} onClose={onClose} />}
     </div>
   );
 }
